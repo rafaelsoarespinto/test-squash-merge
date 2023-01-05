@@ -9,5 +9,5 @@ runs:
       - name: Install psql
         shell: bash
         run: |
-          apt-get update --allow-releaseinfo-change
+          apt-get update
           apt-get install --yes --no-install-recommends postgresql-client      
