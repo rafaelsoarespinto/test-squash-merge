@@ -1,0 +1,25 @@
+name: Production - Hot Deploy
+
+on:
+  workflow_dispatch:
+
+env:
+  APPLICATIONS_NODE_VERSION: 16.16.0
+  APPLICATIONS_ENVIRONMENT: production
+  SECRETS_MANAGER_READER_ROLE: arn:aws:iam::450479712894:role/MarketDataAPISecretsReader
+
+jobs:
+  
+  create-and-populate-database:
+    name: Create and populate database
+    runs-on: [self-hosted, linux, x64]
+
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: create database
+        uses: ./.github/actions/create_database
