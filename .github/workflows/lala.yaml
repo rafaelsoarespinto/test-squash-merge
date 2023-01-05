@@ -12,7 +12,7 @@ jobs:
   
   create-and-populate-database:
     name: Create and populate database
-    runs-on: [self-hosted, linux, x64]
+    runs-on: ubuntu-latest
 
     permissions:
       id-token: write
